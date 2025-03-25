@@ -52,6 +52,8 @@ header p {
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    opacity: 1;
+    transform: scale(1);
 }
 
 .brand-card::before {
@@ -127,5 +129,65 @@ header p {
     .brand-logo {
         width: 100px;
         height: 100px;
+    }
+}
+
+/* Kategori filtreleme butonları için yeni stiller */
+.category-filter {
+    text-align: center;
+    margin: 2rem auto;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+
+.filter-btn {
+    background: white;
+    border: 2px solid #2a5298;
+    color: #2a5298;
+    padding: 0.8rem 1.5rem;
+    margin: 0.5rem;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+    background: #2a5298;
+    color: white;
+    transform: translateY(-2px);
+}
+
+.filter-btn.active {
+    background: #2a5298;
+    color: white;
+}
+
+.brand-category {
+    color: #666;
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+/* Filtreleme animasyonu için */
+.brand-card.hidden {
+    opacity: 0;
+    transform: scale(0.8);
+    height: 0;
+    margin: 0;
+    padding: 0;
+    pointer-events: none;
+}
+
+@media (max-width: 768px) {
+    .category-filter {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .filter-btn {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
     }
 } 
