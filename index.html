@@ -3,48 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Boykot Alternatif Markalar</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Alternatif Markalar Rehberi</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Boykot Edilen Markalar ve Alternatifleri</h1>
-        <p>Boykot ettiğiniz markalar yerine alternatiflerini keşfedin.</p>
+        <h1>Alternatif Markalar Rehberi</h1>
+        <p>Bilinçli tüketici rehberi</p>
     </header>
 
-    <section id="brand-list">
-        <ul>
-            <li class="boykot">
-                <img src="logos/ulker-logo.png" alt="Ülker Logo" class="logo">
-                <strong>Ülker</strong> yerine <span class="alternative">Eti</span>
-                <img src="logos/eti-logo.png" alt="Eti Logo" class="logo">
-            </li>
-            <li class="boykot">
-                <img src="logos/lc-waikiki-logo.png" alt="LC Waikiki Logo" class="logo">
-                <strong>LC Waikiki</strong> yerine <span class="alternative">Mavi</span>
-                <img src="logos/mavi-logo.png" alt="Mavi Logo" class="logo">
-            </li>
-            <li class="boykot">
-                <img src="logos/turk-telekom-logo.png" alt="Türk Telekom Logo" class="logo">
-                <strong>Türk Telekom</strong> yerine <span class="alternative">Bip</span>
-                <img src="logos/bip-logo.png" alt="Bip Logo" class="logo">
-            </li>
-            <li class="boykot">
-                <img src="logos/coca-cola-logo.png" alt="Coca Cola Logo" class="logo">
-                <strong>Coca Cola</strong> yerine <span class="alternative">Fanta</span>
-                <img src="logos/fanta-logo.png" alt="Fanta Logo" class="logo">
-            </li>
-            <li class="boykot">
-                <img src="logos/mcdonalds-logo.png" alt="McDonald's Logo" class="logo">
-                <strong>McDonald's</strong> yerine <span class="alternative">Burger King</span>
-                <img src="logos/burger-king-logo.png" alt="Burger King Logo" class="logo">
-            </li>
-        </ul>
-    </section>
+    <div class="container">
+        <div class="brands-grid">
+            <!-- Ülker - ETİ -->
+            <div class="brand-card boycott">
+                <img src="ulker-logo.png" alt="Ülker" class="brand-logo">
+                <h3 class="brand-name">Ülker</h3>
+            </div>
+            <div class="brand-card alternative">
+                <img src="eti-logo.png" alt="ETİ" class="brand-logo">
+                <h3 class="brand-name">ETİ</h3>
+            </div>
 
-    <footer>
-        <p>Bu liste sürekli güncellenmektedir.</p>
-    </footer>
+            <!-- LC Waikiki - Mavi -->
+            <div class="brand-card boycott">
+                <img src="lcw-logo.png" alt="LC Waikiki" class="brand-logo">
+                <h3 class="brand-name">LC Waikiki</h3>
+            </div>
+            <div class="brand-card alternative">
+                <img src="mavi-logo.png" alt="Mavi" class="brand-logo">
+                <h3 class="brand-name">Mavi</h3>
+            </div>
+        </div>
+    </div>
 
     <script src="script.js"></script>
 </body>
