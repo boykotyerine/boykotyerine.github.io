@@ -5,17 +5,24 @@ document.addEventListener('DOMContentLoaded', function() {
     // Filtreleme fonksiyonu
     function filterCards(category) {
         cards.forEach(card => {
-            if (category === 'hepsi' || card.getAttribute('data-category') === category) {
-                // Görünür olacak kartlar
-                card.style.display = 'flex';
-                requestAnimationFrame(() => {
+            if (category === 'hepsi') {
+                // Tüm kartları göster
+                card.style.display = '';
+                setTimeout(() => {
                     card.style.opacity = '1';
-                    card.style.transform = 'translateY(0) scale(1)';
-                });
+                    card.style.transform = 'scale(1)';
+                }, 10);
+            } else if (card.dataset.category === category) {
+                // Seçili kategorideki kartları göster
+                card.style.display = '';
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'scale(1)';
+                }, 10);
             } else {
-                // Gizlenecek kartlar
+                // Diğer kartları gizle
                 card.style.opacity = '0';
-                card.style.transform = 'translateY(-20px) scale(0.9)';
+                card.style.transform = 'scale(0.8)';
                 setTimeout(() => {
                     card.style.display = 'none';
                 }, 300);
@@ -23,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Filtre butonları için click eventi
+    // Filtre butonlarına tıklama olayı ekle
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
             // Aktif buton stilini güncelle
@@ -31,25 +38,23 @@ document.addEventListener('DOMContentLoaded', function() {
             button.classList.add('active');
             
             // Kartları filtrele
-            const category = button.getAttribute('data-category');
-            filterCards(category);
-
-            // Görünür kartları yeniden düzenle
-            setTimeout(() => {
-                const visibleCards = document.querySelectorAll('.brand-card[style*="display: flex"]');
-                visibleCards.forEach((card, index) => {
-                    card.style.transition = 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)';
-                    card.style.opacity = '0';
-                    card.style.transform = 'translateY(20px)';
-                    
-                    setTimeout(() => {
-                        card.style.opacity = '1';
-                        card.style.transform = 'translateY(0)';
-                    }, index * 100);
-                });
-            }, 300);
+            const selectedCategory = button.getAttribute('data-category');
+            filterCards(selectedCategory);
         });
     });
+
+    // Sayfa yüklendiğinde tüm kartları göster
+    cards.forEach(card => {
+        card.style.opacity = '1';
+        card.style.transform = 'scale(1)';
+        card.style.transition = 'all 0.3s ease-in-out';
+    });
+
+    // İlk yüklemede "Hepsi" butonu aktif olsun
+    const allButton = document.querySelector('[data-category="hepsi"]');
+    if (allButton) {
+        allButton.classList.add('active');
+    }
 
     // Kartların hover efektleri
     cards.forEach(card => {
