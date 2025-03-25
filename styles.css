@@ -1,21 +1,22 @@
 /* Genel stiller */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Arial', sans-serif;
+    background-color: #f0f4f8;
     color: #333;
     margin: 0;
     padding: 0;
 }
 
 header {
-    background-color: #4CAF50;
+    background-color: #ff4d4d;  /* Kırmızı arka plan */
     color: white;
     text-align: center;
-    padding: 20px;
+    padding: 30px 20px;
 }
 
 h1 {
     margin: 0;
+    font-size: 2.5em;
 }
 
 p {
@@ -24,7 +25,9 @@ p {
 
 /* Liste stili */
 #brand-list {
-    margin: 20px;
+    margin: 30px auto;
+    width: 80%;
+    max-width: 1000px;
 }
 
 ul {
@@ -33,20 +36,35 @@ ul {
 }
 
 li {
-    background-color: #ffffff;
-    margin: 10px 0;
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    margin: 15px 0;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: transform 0.3s ease;
 }
 
-li strong {
-    font-size: 1.2em;
+li:hover {
+    transform: scale(1.02);
+}
+
+.logo {
+    width: 50px;
+    height: auto;
+    margin-right: 15px;
+}
+
+/* Boykot markalarına kırmızı, alternatif markalarına yeşil */
+.boykot {
+    background-color: #ffcccc;  /* Boykot edilen markalar için soluk kırmızı arka plan */
 }
 
 .alternative {
     font-weight: bold;
-    color: #4CAF50;
+    color: #4CAF50;  /* Alternatif markalar için yeşil */
 }
 
 /* Footer stili */
@@ -54,8 +72,26 @@ footer {
     background-color: #333;
     color: white;
     text-align: center;
-    padding: 10px;
+    padding: 15px 0;
     position: fixed;
     width: 100%;
     bottom: 0;
+    font-size: 1em;
+}
+
+/* Responsive Tasarım */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2em;
+    }
+    p {
+        font-size: 1em;
+    }
+    #brand-list {
+        width: 90%;
+    }
+    li {
+        flex-direction: column;
+        text-align: center;
+    }
 }
