@@ -3,35 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alternatif Markalar Rehberi</title>
+    <title>Yerli Marka Rehberi</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Alternatif Markalar Rehberi</h1>
-        <p>Bilinçli tüketici rehberi</p>
+        <h1>Yerli Marka Rehberi</h1>
+        <p>Kaliteli Yerli Markalar</p>
     </header>
+
+    <div class="category-filter">
+        <button class="filter-btn active" data-category="hepsi">Hepsi</button>
+        <button class="filter-btn" data-category="giyim">Giyim</button>
+        <button class="filter-btn" data-category="gida">Gıda</button>
+        <button class="filter-btn" data-category="kozmetik">Kozmetik</button>
+        <button class="filter-btn" data-category="elektronik">Elektronik</button>
+    </div>
 
     <div class="container">
         <div class="brands-grid">
-            <!-- Ülker - ETİ -->
-            <div class="brand-card boycott">
-                <img src="ulker-logo.png" alt="Ülker" class="brand-logo">
-                <h3 class="brand-name">Ülker</h3>
-            </div>
-            <div class="brand-card alternative">
+            <div class="brand-card" data-category="gida">
                 <img src="eti-logo.png" alt="ETİ" class="brand-logo">
                 <h3 class="brand-name">ETİ</h3>
+                <p class="brand-category">Gıda / Atıştırmalık</p>
             </div>
 
-            <!-- LC Waikiki - Mavi -->
-            <div class="brand-card boycott">
-                <img src="lcw-logo.png" alt="LC Waikiki" class="brand-logo">
-                <h3 class="brand-name">LC Waikiki</h3>
-            </div>
-            <div class="brand-card alternative">
+            <div class="brand-card" data-category="giyim">
                 <img src="mavi-logo.png" alt="Mavi" class="brand-logo">
                 <h3 class="brand-name">Mavi</h3>
+                <p class="brand-category">Giyim</p>
+            </div>
+
+            <div class="brand-card" data-category="kozmetik">
+                <img src="flormar-logo.png" alt="Flormar" class="brand-logo">
+                <h3 class="brand-name">Flormar</h3>
+                <p class="brand-category">Kozmetik</p>
+            </div>
+
+            <div class="brand-card" data-category="elektronik">
+                <img src="vestel-logo.png" alt="Vestel" class="brand-logo">
+                <h3 class="brand-name">Vestel</h3>
+                <p class="brand-category">Elektronik</p>
+            </div>
+
+            <div class="brand-card" data-category="gida">
+                <img src="torku-logo.png" alt="Torku" class="brand-logo">
+                <h3 class="brand-name">Torku</h3>
+                <p class="brand-category">Gıda</p>
+            </div>
+
+            <div class="brand-card" data-category="giyim">
+                <img src="derimod-logo.png" alt="Derimod" class="brand-logo">
+                <h3 class="brand-name">Derimod</h3>
+                <p class="brand-category">Giyim / Ayakkabı</p>
             </div>
         </div>
     </div>
