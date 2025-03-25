@@ -1,97 +1,131 @@
-/* Genel stiller */
-body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f0f4f8;
-    color: #333;
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background-color: #f0f8ff;
 }
 
 header {
-    background-color: #ff4d4d;  /* Kırmızı arka plan */
+    background: linear-gradient(to right, #1e3c72, #2a5298);
     color: white;
     text-align: center;
-    padding: 30px 20px;
+    padding: 2rem;
+    margin-bottom: 2rem;
 }
 
-h1 {
-    margin: 0;
-    font-size: 2.5em;
+header h1 {
+    margin-bottom: 0.5rem;
+    font-size: 2.5rem;
 }
 
-p {
-    font-size: 1.2em;
+header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
 }
 
-/* Liste stili */
-#brand-list {
-    margin: 30px auto;
-    width: 80%;
-    max-width: 1000px;
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
-ul {
-    list-style-type: none;
-    padding: 0;
+.brands-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
 }
 
-li {
-    background-color: white;
-    margin: 15px 0;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.brand-card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    padding: 1.5rem;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.brand-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.1);
+    transform: translateX(-100%);
     transition: transform 0.3s ease;
 }
 
-li:hover {
-    transform: scale(1.02);
+.brand-card:hover::before {
+    transform: translateX(0);
 }
 
-.logo {
-    width: 50px;
-    height: auto;
-    margin-right: 15px;
-}
-
-/* Boykot markalarına kırmızı, alternatif markalarına yeşil */
-.boykot {
-    background-color: #ffcccc;  /* Boykot edilen markalar için soluk kırmızı arka plan */
+.boycott {
+    border-left: 5px solid #ff4444;
 }
 
 .alternative {
-    font-weight: bold;
-    color: #4CAF50;  /* Alternatif markalar için yeşil */
+    border-left: 5px solid #4CAF50;
 }
 
-/* Footer stili */
-footer {
-    background-color: #333;
-    color: white;
+.brand-logo {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+    transition: transform 0.3s ease;
+}
+
+.brand-card:hover .brand-logo {
+    transform: scale(1.1);
+}
+
+.brand-name {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
     text-align: center;
-    padding: 15px 0;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    font-size: 1em;
 }
 
-/* Responsive Tasarım */
+.boycott .brand-name {
+    color: #ff4444;
+}
+
+.alternative .brand-name {
+    color: #4CAF50;
+}
+
 @media (max-width: 768px) {
-    h1 {
-        font-size: 2em;
+    .brands-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1rem;
     }
-    p {
-        font-size: 1em;
+
+    header h1 {
+        font-size: 2rem;
     }
-    #brand-list {
-        width: 90%;
-    }
-    li {
-        flex-direction: column;
-        text-align: center;
+
+    header p {
+        font-size: 1rem;
     }
 }
+
+@media (max-width: 480px) {
+    .brand-card {
+        padding: 1rem;
+    }
+
+    .brand-logo {
+        width: 100px;
+        height: 100px;
+    }
+} 
