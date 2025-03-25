@@ -1,9 +1,33 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Kartların animasyon efektleri
     const cards = document.querySelectorAll('.brand-card');
+    const filterButtons = document.querySelectorAll('.filter-btn');
     
+    // Filtreleme fonksiyonu
+    function filterCards(category) {
+        cards.forEach(card => {
+            if (category === 'hepsi' || card.dataset.category === category) {
+                card.classList.remove('hidden');
+            } else {
+                card.classList.add('hidden');
+            }
+        });
+    }
+
+    // Filtre butonları için click eventi
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Aktif buton stilini güncelle
+            filterButtons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+            
+            // Kartları filtrele
+            const category = button.dataset.category;
+            filterCards(category);
+        });
+    });
+
+    // Kartların hover efektleri
     cards.forEach(card => {
-        // Hover efektleri
         card.addEventListener('mouseover', function() {
             this.style.transform = 'translateY(-10px)';
             this.style.boxShadow = '0 10px 20px rgba(0,0,0,0.2)';
